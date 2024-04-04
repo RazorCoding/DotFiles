@@ -1,0 +1,94 @@
+// -*- mode: jsonc -*-
+{	
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    //"height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/mode"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "backlight",
+        "clock",
+	"tray",
+	"battery"
+    ],
+    // Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}: {icon}",
+         "format-icons": {
+             "1": " ",
+             "2": " ",
+             "3": " ",
+             "4": " ",
+             "5": " ",
+             "urgent": " ",
+             "focused": " ",
+             "default": " "
+        }
+     },
+    "tray": {
+         "icon-size": 30,
+        "spacing": 10
+    },
+
+
+"clock": {
+  "format": "{:%Y/%m/%d %H:%M}"
+}, 
+   "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+           "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+},
+"battery": {
+  "bat": "BAT0",
+  "states": {
+    "good": 95,
+    "warning": 30,
+    "critical": 5
+  },
+  "format": "BAT0: {capacity}%",
+  "format-charging": "BAT0: {capacity}% (charging)",
+  "format-plugged": "BAT0: {capacity}% (plugged)"
+},
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
