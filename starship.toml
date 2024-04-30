@@ -1,0 +1,66 @@
+# ~/.config/starship.toml
+
+# Use custom format
+format = "\\[$username@$hostname\\] $directory\\$ "
+
+
+right_format = """
+
+$battery$time
+"""
+
+follow_symlinks = true
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Set 'foo' as custom color palette
+palette = 'foo'
+
+# Define custom colors
+[palettes.foo]
+# Overwrite existing color
+blue = '21'
+# Define new color
+mustard = '#af8700'
+
+[battery]
+format = "[ $percentage $symbol]($style)"
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+[[battery.display]] # 'bold red' style and discharging_symbol when capacity is between 0% and 10%
+threshold = 10
+style = 'bold red'
+
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
+discharging_symbol = '💦 '
+
+# when capacity is over 30%, the battery indicator will not be displayed
+[[battery.display]]
+threshold = 90
+style = "bold green"
+discharging_symbol = '★ [UNPLUG IT NOW]'
+
+
+[time]
+disabled = false
+format = ' $time$style '
+time_format = '%r'
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue)[$hostname](bold red) '
+trim_at = '.companyname.com'
+disabled = false
