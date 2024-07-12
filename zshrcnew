@@ -1,0 +1,13 @@
+export EDITOR=helix
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# Zsh to use the same colors as ls
+#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+alias curl -F https://0x0.st
+alias ls='ls --color=auto'
+alias hx='helix'
+alias rm='rm -i'
+set e
+alias Mirror='rate-mirrors --disable-comments-in-file --entry-country=CA --protocol=https arch --max-delay 7200 | sudo tee /etc/pacman.d/mirrorlist'
+alias grim_S='grim -g "$(slurp)"'
+eval "$(starship init zsh)"
