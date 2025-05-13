@@ -1,126 +1,76 @@
 * {
-    font-family: FantasqueSans MOno, monospace;
-    font-size: 24px;
+    font-family: JetBrains Mono, monospace;
+    font-size: 22px;
     color: #ffffff;
 }
 
 window#waybar {
-    background: #1e1e1e;
-    border-bottom: 0px solid #ff0000;
+    background: linear-gradient(90deg, #131317 0%, #1a1a1f 100%);
+    border-bottom: 0px solid;
 }
 
-/* Workspace button styles with colored columns (both sides) */
+/* Workspaces with rainbow-style borders */
 #workspaces button {
-    color: #ffffff;
     background: #1e1e1e;
-    border-left: 4px solid #444;
-    border-right: 4px solid #444;
     padding: 4px 10px;
     margin: 2px;
     border-radius: 6px;
-    transition: all 0.2s ease;
     font-weight: normal;
+    border-left: 4px solid #ff7f50;
+    border-right: 4px solid #ff7f50;
+    transition: all 0.2s ease;
 }
 
 #workspaces button.focused {
     background: #2e2e2e;
     border-left-color: #ff3c38;
     border-right-color: #ff3c38;
-    color: #ffffff;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background: #2e2e2e;
-    border-left-color: #ff0080;
-    border-right-color: #ff0080;
-    color: #ffffff;
-    font-weight: bold;
+    border-left-color: #ff1493;
+    border-right-color: #ff1493;
 }
 
 #workspaces button.visible {
-    background: #1e1e1e;
-    border-left-color: #3498db;
-    border-right-color: #3498db;
-    color: #cccccc;
+    border-left-color: #00ced1;
+    border-right-color: #00ced1;
 }
 
 #workspaces button.empty {
-    background: #1e1e1e;
-    border-left-color: #555;
-    border-right-color: #555;
-    color: #777;
+    border-left-color: #808080;
+    border-right-color: #808080;
+    color: #888;
 }
 
 #workspaces button:hover {
-    background: #2a2a2a;
-    border-left-color: #aaa;
-    border-right-color: #aaa;
-    color: #ffffff;
+    border-left-color: #ffd700;
+    border-right-color: #ffd700;
 }
 
-/* Module blocks with column-style color borders (both sides) */
-#backlight,
-#clock,
-#battery,
-#network,
-#cpu,
-#memory {
+/* Modules with bold, colorful borders */
+#cpu      { border-color: #e74c3c; }
+#memory   { border-color: #f39c12; }
+#battery  { border-color: #2ecc71; }
+#network  { border-color: #3498db; }
+#clock    { border-color: #9b59b6; }
+#backlight{ border-color: #fdcb6e; }
+#tray     { border-color: #95a5a6; }
+#pulseaudio { border-color: #1abc9c; }
+#bluetooth  { border-color: #2980b9; }
+#temperature{ border-color: #e67e22; }
+#custom-weather { border-color: #00bfff; }
+#custom-spotify { border-color: #1db954; }
+#custom-updates { border-color: #ff00ff; }
+
+#cpu, #memory, #battery, #network, #clock,
+#backlight, #tray, #pulseaudio, #bluetooth,
+#temperature, #custom-weather, #custom-spotify, #custom-updates {
     background: #1e1e1e;
     padding: 5px 10px;
     margin: 3px;
     border-radius: 5px;
     border-left: 4px solid;
     border-right: 4px solid;
-}
-
-/* Individual column colors */
-#cpu {
-    border-left-color: #ff6b6b;
-    border-right-color: #ff6b6b;
-}
-
-#memory {
-    border-left-color: #f1c40f;
-    border-right-color: #f1c40f;
-}
-
-#battery {
-    border-left-color: #2ecc71;
-    border-right-color: #2ecc71;
-}
-
-#battery.charging {
-    color: #00ff00;
-}
-
-#battery.warning {
-    color: #ffcc00;
-}
-
-#battery.critical {
-    color: #ff4444;
-}
-
-#network {
-    border-left-color: #3498db;
-    border-right-color: #3498db;
-}
-
-#clock {
-    border-left-color: #9b59b6;
-    border-right-color: #9b59b6;
-}
-
-#backlight {
-    border-left-color: #e67e22;
-    border-right-color: #e67e22;
-}
-
-#tray {
-    background: #1e1e1e;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border-left: 4px solid #95a5a6;
-    border-right: 4px solid #95a5a6;
 }
