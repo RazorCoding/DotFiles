@@ -11,7 +11,7 @@
         "hyprland/mode"
     ],
     "modules-center": [
-        "clock"
+        "hyprland/window"
     ],
     "modules-right": [
         "memory",
@@ -20,6 +20,7 @@
 	"network", 
         "battery",
         "battery#bat2",
+        "clock",
         "tray"
     ],
     // Modules configuration
@@ -33,7 +34,7 @@
              "1": "Terminals",
              "2": "Browser",
              "3": "Code",
-	     "4": "Steam",
+             "4": "Games",
              "urgent": "Alert",
              "focused": "Focuced"
          }
