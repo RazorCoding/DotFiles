@@ -1,9 +1,6 @@
-#theme = "catppuccin_mocha"
-#theme = "everforest_dark"
-#theme = "catppuccin_frappe" 
-#theme = "ayu_dark"
-theme = "monokai_pro"
+theme = "kaolin-vally-dark"
 [editor]
+auto-format = true
 line-number = "relative"
 mouse = false
 [editor.cursor-shape]
@@ -21,6 +18,8 @@ layout = ["diff", "diagnostics", "line-numbers", "spacer"]
 
 [editor.gutters.line-numbers]
 min-width = 1
+
+
 
 [editor.soft-wrap]
 enable = true
