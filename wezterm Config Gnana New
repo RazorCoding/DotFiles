@@ -1,31 +1,36 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = "Monokai Soda (Gogh)",
---  color_scheme = "MaterialDark",
-  -- 🎨 Material Dark Color Scheme from Helix
-  colors = {
-   foreground = "#d4d4d4",  -- Bright white text
---   background = "#1e1e1e",  -- Deep dark gray background
---    cursor_bg = "#FFCC00",   -- Yellow cursor
- --   cursor_border = "#FFCC00",
- --   cursor_fg = "#212121",
-},
-  -- Font Configuration (Using FiraCode)
-  font = wezterm.font_with_fallback({
-  --"FiraCode",
-   "FantasqueSans MOno",  -- Your preferred font
-    "Noto Color Emoji"
-  }),
-  font_size = 21.0,
- -- cell_width = 0.9,
- -- line_height = 1.0,
- -- UI & Features
-  enable_wayland = false,
-  hide_tab_bar_if_only_one_tab = true,
+  -- Color Scheme (Monokai Soda)
+   --  color_scheme = "Monokai Soda (Gogh)",
+  color_scheme = "PaperColor Dark (base16)",
+   -- color_scheme = "GJM (terminal.sexy)",  -- You can switch this to MaterialDark if you prefer
 
-  -- 🔍 Font Ligatures for FiraCode
-  harfbuzz_features = { 'zero' },
-   enable_tab_bar = true,
-  hide_tab_bar_if_only_one_tab = true,  -- Always show the tab bar
+  colors = {
+    foreground = "#fff",  -- Bright white text
+    background = "#202120",  -- Deep dark gray background
+    cursor_bg = "#ff0000",   -- Uncomment if you want a yellow cursor
+    -- cursor_border = "#FFCC00",  -- Yellow cursor border
+    -- cursor_fg = "#212121",   -- Dark cursor text
+  },
+
+  -- Font Configuration (Using FiraCode with fallback to Noto Color Emoji)
+  font = wezterm.font_with_fallback({
+   "FiraCode",
+   -- "Fantasque Sans Mono",
+    "Noto Color Emoji",  -- Add fallback font
+  }),
+
+  -- Font rendering and size settings
+  font_size = 18.5,  -- Adjust this value to make the font bigger or smaller
+  --  font_antialias = "Subpixel",  -- Improve font rendering for better sharpness
+  --adjust_window_size_when_changing_font_size = false,  -- Keep window size constant when changing font size
+
+  -- Font Ligatures for FiraCode
+  harfbuzz_features = { 'zero' },  -- Enable zero-width characters
+
+  -- Optional tweaks
+  enable_wayland = false,  -- Disable Wayland support if not needed
+  enable_tab_bar = true,   -- Always show the tab bar
+  hide_tab_bar_if_only_one_tab = true,  -- Hide the tab bar when there is only one tab
 }
