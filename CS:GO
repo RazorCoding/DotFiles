@@ -1,0 +1,12 @@
+ Step-by-Step Fix for strstr.so on Arch Linux
+// ~/strstr.c
+#include <string.h>
+
+char *strstr(const char *haystack, const char *needle) {
+    return NULL;
+}
+gcc -shared -fPIC -o ~/strstr.so ~/strstr.c
+
+=================================STEAM OPTIONS======================================
+luach option : SDL_VIDEODRIVER=wayland %command% -novid -nojoy -fullscreen -vulkan -w 2560 -h 1600
+bind = $mainMod, X, exec, env GDK_SCALE=1.5 GDK_DPI_SCALE=1.5 SDL_VIDEODRIVER=wayland LD_PRELOAD=/home/strstr.so:/usr/lib/x86_64/libSDL2-2.0.so.0.18.2 prime-run steam -force-device-scale-factor=1.5
