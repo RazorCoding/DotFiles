@@ -206,6 +206,10 @@
 }
 }
 
+-//--------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------/-//-
+-//////////////////////////////////////////////////////////////////////////////////////////-
+/--------------------------------------------------------------------------------------------//
 * {
   border: none;
   border-radius: 0;
@@ -288,7 +292,7 @@
 
 #workspaces button.active {
   background: #1e1e1e;
-  color: #00d2ff;
+  color: #6ffc03;
 }
 
 #workspaces button.urgent {
@@ -302,10 +306,42 @@
 
 #custom-arch_logo {
   font-size: 25px;
-  color: #4FC3F7;           /* optional Arch blue */
+  color: red;           /* optional Arch blue */
   padding-left: 6px;
   padding-right: 6px;
   margin-left: 4px;
   margin-right: 4px;
   min-width: 24px;
+}
+/* COLORFUL MODULES */
+#custom-battery_health {
+  color: #00FF80; /* Mint green */
+}
+
+#battery {
+  color: #FFB300; /* Amber */
+}
+
+#network {
+  color: #4FC3F7; /* Sky blue */
+}
+
+#custom-airplane {
+  color: #FF7043; /* Orange-red */
+}
+
+#clock {
+  color: #F06292; /* Pink */
+}
+
+#custom-net_speed {
+  color: #BA68C8; /* Purple */
+}
+
+#tray {
+  color: #B0BEC5; /* Cool gray */
+}
+
+#idle_inhibitor {
+  color: #FFD54F; /* Yellow */
 }
