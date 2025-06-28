@@ -1,0 +1,311 @@
+// -*- mode: jsonc -*-
+{
+     "layer": "top", // Waybar at top layer
+     "position": "top", // Waybar position (top|bottom|left|right)
+     //"mode": "dock",
+     //"start_hidden": true,
+    //"height": 20, // Waybar height (to be removed for auto height)
+    //"width": 1280, // Waybar width
+    "spacing": 1, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+  "custom/arch_logo",
+  "hyprland/workspaces"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+ 	  
+	"idle_inhibitor",
+ 	"custom/battery_health",
+	"custom/airplane",
+ 	 "custom/net_speed",
+	"network", 
+        "battery",
+        "battery#bat2",
+	"clock",
+        "tray"
+    ],
+"hyprland/workspaces": {
+  "disable-scroll": true,
+  "all-outputs": true,
+  "warp-on-scroll": false,
+  "format": "{icon}",
+  "format-icons": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "focused": "●",
+    "urgent": "",
+    "default": "{name}"
+  }
+},
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+    "tray": {
+        "icon-size": 25,
+        "spacing": 10
+    },
+    "clock": {
+    // "timezone": "America/New_York",
+    "format":"{:%a, %d %b %I:%M:%S %p}",  // <-- Includes seconds now
+    "tooltip-format":"<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt":"{:%Y-%m-%d}",
+    "interval": 1
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{tenmperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+  "format": "{capacity}% ", 
+  "format-charging":"{capacity}% ",
+  "format-plugged":"{capacity}% ",
+  "format-warning":"{capacity}% ⚠️",
+  "format-critical":"{capacity}% ❗",
+  "interval": 1,
+  "states": {
+    "warning": 25,
+    "critical": 10
+  }
+},
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": " ",
+        "power-saver": " "
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+"custom/cpu": {
+    "format": " {}",
+    "exec": "mpstat 1 1 | awk '/Average:/ {printf(\"%.1f%%\", 100 - $NF)}'",
+    "interval": 5
+},
+"idle_inhibitor": {
+  "format": "{icon}",
+  "format-icons": {
+    "activated": " ",   // eye icon
+    "deactivated": " "  // eye-slash icon
+  }
+},
+  "custom/airplane": {
+  "exec": "~/.config/waybar/scripts/airplane_status.sh",
+  "interval": 1,
+  "return-type": "json",
+  "format": "{}",
+  "tooltip": true
+},
+"custom/net_speed": {
+  "exec": "~/.config/waybar/scripts/net_speed.sh",
+  "interval": 1,
+  "return-type": "json"
+},
+
+"custom/battery_health": {
+    "exec": "~/.config/waybar/scripts/battery_health.sh",
+    "interval": 1,
+    "return-type": "plain",
+    "tooltip": false
+},
+"custom/arch_logo": {
+  "format": "",
+  "tooltip": false
+},
+"custom/divider": {
+  "exec": "~/.config/waybar/scripts/divider.sh",
+  "interval": 9999
+}
+}
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "IosevkaTerm Nerd Font", "Font Awesome 6 Free";
+  font-style: normal;
+  font-size: 24px;
+  min-height: 20px;
+  margin: 1px;
+}
+
+/* Whole Waybar Bar */
+#waybar {
+  background-color: #1c1c1c;
+  border: 0px solid #FFA500;
+  border-radius: 0px;
+  padding: 0px;
+  margin: 0px;
+  color: #ffffff;
+}
+
+/* Standardize padding/margin across all right-side modules */
+#battery,
+#custom-battery_health,
+#custom-airplane,
+#network,
+#clock,
+#tray,
+#idle_inhibitor {
+  padding: 2px 6px;
+  margin: 2px 2px;
+}
+
+/* Specific tray tweak: no weird extra margin */
+#tray {
+  margin-right: 4px;
+  padding-right: 6px;
+}
+#battery {
+  padding: 2px 8px;
+  margin-right: 4px;
+  min-width: 50px;
+}
+
+#clock {
+  padding: 2px 8px;
+  margin-left: 4px;
+}
+/* Clock: remove margin from top/bottom to keep bar compact */
+
+/* Network: ensure no overflow */
+#network {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/* Optional: align battery + airplane for symmetry */
+#custom-airplane {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/* Workspaces */
+#workspaces {
+  color: #cccccc;
+   padding-left: 1px;
+  margin-left: 1px;
+}
+
+#workspaces button {
+  font-family: "IosevkaTerm Nerd Font", "Font Awesome 6 Free";
+  font-size: 30px; /* Smaller icon size */
+  background: transparent;
+  color: #dddddd;
+  padding: 1px 10px;   /* Reduced padding */
+  margin: 5px 0px;    /* Reduced spacing */
+  border-radius: 4px;
+  border: 1px solid transparent;
+  min-width: 24px;
+}
+
+#workspaces button.active {
+  background: #1e1e1e;
+  color: #00d2ff;
+}
+
+#workspaces button.urgent {
+  background: #ff0000;
+  color: white;
+}
+
+#workspaces button:hover {
+  background: #333333;
+}
+
+#custom-arch_logo {
+  font-size: 25px;
+  color: #4FC3F7;           /* optional Arch blue */
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
+  min-width: 24px;
+}
